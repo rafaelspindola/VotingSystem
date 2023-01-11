@@ -8,23 +8,20 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Voters {
+public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
-    @NotBlank
     @Column
-    private String name;
+    private int yesVotes;
+
+    @Column
+    private int noVotes;
 
     @NotBlank
     @Column
     private String cpf;
-
-    @NotBlank
-    @Column
-    private String vote;
-
 }
