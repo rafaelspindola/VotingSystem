@@ -29,6 +29,6 @@ public class Voter {
 
     @NotBlank
     @Column
-    private String vote;
+    private int vote;
 
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatterRepository
-        extends JpaRepository<Matter, Long> { }
+        extends JpaRepository<Matter, Long> {
+
+}
