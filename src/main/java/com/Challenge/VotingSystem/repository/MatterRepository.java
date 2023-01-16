@@ -1,6 +1,6 @@
-package com.Challenge.VotingSystem.Repository;
+package com.Challenge.VotingSystem.repository;
 
-import com.Challenge.VotingSystem.Entity.Matter;
+import com.Challenge.VotingSystem.entity.Matter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

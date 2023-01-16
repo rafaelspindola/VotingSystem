@@ -1,4 +1,4 @@
-package com.Challenge.VotingSystem.Entity;
+package com.Challenge.VotingSystem.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class VotingSession {
+public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +22,16 @@ public class VotingSession {
     private Long id;
 
     @Column
+    @OneToMany(mappedBy = "session")
     private List<Vote> votes;
 
     @Column
     private int sessionDuration;
+
+    private LocalDateTime initialized_at;
+
+    private LocalDateTime finalized_at;
+    // .now()
 
 //    public void getResult() {
 //        if(yesVotes > noVotes) {

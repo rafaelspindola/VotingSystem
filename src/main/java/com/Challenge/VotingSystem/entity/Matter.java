@@ -1,5 +1,6 @@
-package com.Challenge.VotingSystem.Entity;
+package com.Challenge.VotingSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -7,12 +8,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Getter
 @Setter
-public class Voter {
+public class Matter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +24,13 @@ public class Voter {
 
     @NotBlank
     @Column
-    private String name;
+    private String text;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
+    @Column
+    private LocalDate date;
 
     @NotBlank
     @Column
-    private String cpf;
-
-    @NotBlank
-    @Column
-    private int vote;
-
+    private String author;
 }

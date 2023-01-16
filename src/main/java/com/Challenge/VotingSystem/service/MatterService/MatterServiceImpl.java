@@ -1,7 +1,7 @@
-package com.Challenge.VotingSystem.Service.MatterService;
+package com.Challenge.VotingSystem.service.MatterService;
 
-import com.Challenge.VotingSystem.Entity.Matter;
-import com.Challenge.VotingSystem.Repository.MatterRepository;
+import com.Challenge.VotingSystem.entity.Matter;
+import com.Challenge.VotingSystem.repository.MatterRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class MatterServiceImpl implements MatterService {
         return matterRepository.save(matter);
     }
 
-    public Matter deleteById(Long id) {
-        return matterRepository.deleteById(id);
+    public void deleteById(Long id) {
+        matterRepository.deleteById(id);
     }
 }

@@ -1,11 +1,12 @@
-package com.Challenge.VotingSystem.Service.VoteService;
+package com.Challenge.VotingSystem.service.VoteService;
 
-import com.Challenge.VotingSystem.Entity.Vote;
-import com.Challenge.VotingSystem.Repository.VoteRepository;
+import com.Challenge.VotingSystem.entity.Vote;
+import com.Challenge.VotingSystem.repository.VoteRepository;
 
 import java.util.List;
 
 public class VoteServiceImpl implements VoteService{
+
 
     VoteRepository voteRepository;
 
@@ -22,7 +23,4 @@ public class VoteServiceImpl implements VoteService{
         return voteRepository.save(vote);
     }
 
-    public Vote deleteById(Long id) {
-        return voteRepository.deleteById();
-    }
 }

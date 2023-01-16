@@ -8,6 +8,7 @@ public class VotingSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VotingSystemApplication.class, args);
+
 	}
 
 }

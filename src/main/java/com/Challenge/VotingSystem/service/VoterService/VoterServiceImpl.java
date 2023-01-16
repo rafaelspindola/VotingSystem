@@ -1,7 +1,7 @@
-package com.Challenge.VotingSystem.Service.VoterService;
+package com.Challenge.VotingSystem.service.VoterService;
 
-import com.Challenge.VotingSystem.Entity.Voter;
-import com.Challenge.VotingSystem.Repository.VoterRepository;
+import com.Challenge.VotingSystem.entity.Voter;
+import com.Challenge.VotingSystem.repository.VoterRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,4 @@ public class VoterServiceImpl implements VoterService {
         return voterRepository.save(voter);
     }
 
-    public Voter deleteById(Long id) {
-        return voterRepository.deleteById(id);
-    }
 }
