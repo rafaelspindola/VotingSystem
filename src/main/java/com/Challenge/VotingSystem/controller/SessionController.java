@@ -32,7 +32,7 @@ public class SessionController {
     }
 
     @PostMapping
-    public ResponseEntity<Session> save(@RequestBody Session session) {
+    public ResponseEntity<Session> createSession(@RequestBody Session session) {
         Session created = service.save(session);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().
                 path("{id}").
