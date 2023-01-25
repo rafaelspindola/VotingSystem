@@ -26,7 +26,17 @@ public class Vote {
     @Column
     private Long id;
 
-    private String voteType;
+    private VoteType voteType;
+
+    enum VoteType {
+        YES (1), NO(2);
+
+        private int value;
+
+        VoteType(int value) {
+            this.value = value;
+        }
+    }
 
     // post, vote creation
 }
