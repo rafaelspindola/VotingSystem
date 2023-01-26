@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+
 
 import { MattersRoutingModule } from './matters-routing.module';
 import { MattersComponent } from './matters/matters.component';
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
+
 
 
 @NgModule({
@@ -13,7 +15,7 @@ import { MattersComponent } from './matters/matters.component';
   imports: [
     CommonModule,
     MattersRoutingModule,
-    MatTableModule
+    AppMaterialModule
   ]
 })
 export class MattersModule { }
