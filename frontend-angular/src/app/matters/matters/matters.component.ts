@@ -1,6 +1,8 @@
-import { MattersService } from './../services/matters.service';
-import { Matter } from './../model/matter';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Matter } from './../model/matter';
+import { MattersService } from './../services/matters.service';
 
 @Component({
   selector: 'app-matters',
@@ -9,9 +11,7 @@ import { Component } from '@angular/core';
 })
 export class MattersComponent {
 
-  matters: Matter[] = [
-    { _id: "1", matter: 'Raise', author: 'Rafael'}
-  ];
+  matters: Observable<Matter[]>;
   displayedColumns = ['matter', 'author'];
 
   constructor(private mattersService: MattersService) {
