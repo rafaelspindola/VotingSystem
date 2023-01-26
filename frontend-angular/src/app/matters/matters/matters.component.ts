@@ -1,3 +1,4 @@
+import { MattersService } from './../services/matters.service';
 import { Matter } from './../model/matter';
 import { Component } from '@angular/core';
 
@@ -12,5 +13,9 @@ export class MattersComponent {
     { _id: "1", matter: 'Raise', author: 'Rafael'}
   ];
   displayedColumns = ['matter', 'author'];
+
+  constructor(private mattersService: MattersService) {
+    this.matters = this.mattersService.findAllMatters();
+  }
 
 }
