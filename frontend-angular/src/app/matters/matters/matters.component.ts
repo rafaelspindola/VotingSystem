@@ -1,3 +1,4 @@
+import { Matter } from './../model/matter';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./matters.component.scss']
 })
 export class MattersComponent {
+
+  matters: Matter[] = [
+    { _id: "1", matter: 'Raise', author: 'Rafael'}
+  ];
+  displayedColumns = ['matter', 'author'];
 
 }
