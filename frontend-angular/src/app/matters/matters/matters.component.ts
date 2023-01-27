@@ -11,11 +11,11 @@ import { MattersService } from './../services/matters.service';
 })
 export class MattersComponent {
 
-  matters: Observable<Matter[]>;
+  matters$: Observable<Matter[]>;
   displayedColumns = ['matter', 'author'];
 
   constructor(private mattersService: MattersService) {
-    this.matters = this.mattersService.findAllMatters();
+    this.matters$ = this.mattersService.findAllMatters();
   }
 
 }

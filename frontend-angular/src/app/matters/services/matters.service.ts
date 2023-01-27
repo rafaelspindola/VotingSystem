@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 import { Matter } from './../model/matter';
-import { first, tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,7 @@ export class MattersService {
     return this.httpClient.get<Matter[]>(this.API)
     .pipe(
       first(),
+      delay(5000),
       tap(matters => console.log(matters))
     );
   }
