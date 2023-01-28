@@ -22,21 +22,38 @@ public class Vote {
     private Voter voter;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
 
-    private VoteType voteType;
+    private String voteType;
 
     enum VoteType {
-        YES (1), NO(2);
+        YES(1), NO(2);
 
-        private int value;
+        private int vote;
 
-        VoteType(int value) {
-            this.value = value;
+        VoteType(int vote) {
+            this.vote = vote;
         }
     }
+}
+
+//        public void getVotes() {
+//            int yesVotes = 0;
+//            int noVotes = 0;
+//            if (vote == 1) {
+//                yesVotes += 1;
+//            } else if (vote == 2) {
+//                noVotes += 1;
+//            }
+//        }
+//
+//        public void getResults() {
+//        }
+//    }
+
+
 
     // post, vote creation
-}
+

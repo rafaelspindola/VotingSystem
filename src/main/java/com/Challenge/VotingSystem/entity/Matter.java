@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class Matter {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
 
@@ -29,6 +29,7 @@ public class Matter {
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     @Column
     private LocalDate date;
+
 
     @NotBlank
     @Column

@@ -25,7 +25,7 @@ public class VoteController {
         return ResponseEntity.ok().body(votes);
     }
 
-    @PostMapping
+    @PostMapping //button to save vote (get CPF)
     public ResponseEntity<Vote> createVote(@RequestBody Vote vote) {
         Vote created = service.save(vote);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()

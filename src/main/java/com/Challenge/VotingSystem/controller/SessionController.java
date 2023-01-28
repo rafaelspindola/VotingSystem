@@ -31,7 +31,7 @@ public class SessionController {
         return ResponseEntity.ok(session);
     }
 
-    @PostMapping
+    @PostMapping // button to create session and count votes, show a dialog with results
     public ResponseEntity<Session> createSession(@RequestBody Session session) {
         Session created = service.save(session);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().
