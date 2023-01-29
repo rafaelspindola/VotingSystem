@@ -9,7 +9,12 @@ import java.util.List;
 @Service
 public class MatterServiceImpl implements MatterService {
 
+
     MatterRepository matterRepository;
+
+    public MatterServiceImpl(MatterRepository matterRepository) {
+        this.matterRepository = matterRepository;
+    }
 
     public List<Matter> findAll() {
         return matterRepository.findAll();

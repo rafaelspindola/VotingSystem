@@ -1,7 +1,7 @@
 package com.Challenge.VotingSystem.controller;
 
 import com.Challenge.VotingSystem.entity.Matter;
-import com.Challenge.VotingSystem.repository.MatterRepository;
+import com.Challenge.VotingSystem.service.MatterService.MatterService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,23 +11,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/matters")
 public class MatterController {
-//        @Autowired
-//    MatterService service;
-//    private final MatterService service;
+    private final MatterService service;
 
-    public MatterController(MatterRepository repository) {
-        this.repository = repository;
+    public MatterController(MatterService service) {
+        this.service = service;
     }
-
-    private MatterRepository repository;
-
-//    public MatterController(MatterService service) {
-//        this.service = service;
-//    }
 
     @GetMapping
     public ResponseEntity<List<Matter>> findAll() {
-        List<Matter> matters = repository.findAll();
+        List<Matter> matters = service.findAll();
         return ResponseEntity.ok().body(matters);
     }
 
@@ -40,7 +32,7 @@ public class MatterController {
     @PostMapping
     public ResponseEntity<Matter> save(@RequestBody Matter matter) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(repository.save(matter));
+                .body(service.save(matter));
     }
 
 //    @DeleteMapping("/{id}")

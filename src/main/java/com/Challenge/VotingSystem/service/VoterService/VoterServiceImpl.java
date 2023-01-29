@@ -11,6 +11,10 @@ public class VoterServiceImpl implements VoterService {
 
     VoterRepository voterRepository;
 
+    public VoterServiceImpl(VoterRepository voterRepository) {
+        this.voterRepository = voterRepository;
+    }
+
     public List<Voter> findAll() {
         return voterRepository.findAll();
     }

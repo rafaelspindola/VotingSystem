@@ -8,7 +8,12 @@ import java.util.List;
 
 @Service
 public class SessionServiceImpl implements SessionService {
+
     SessionRepository sessionRepository;
+
+    public SessionServiceImpl(SessionRepository sessionRepository) {
+        this.sessionRepository = sessionRepository;
+    }
 
     public List<Session> findAll() {
         return sessionRepository.findAll();

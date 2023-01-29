@@ -10,6 +10,10 @@ public class VoteServiceImpl implements VoteService{
 
     VoteRepository voteRepository;
 
+    public VoteServiceImpl(VoteRepository voteRepository) {
+        this.voteRepository = voteRepository;
+    }
+
     @Override
     public List<Vote> findAll() {
         return voteRepository.findAll();
