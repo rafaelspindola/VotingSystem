@@ -1,3 +1,4 @@
+<body>
 <mat-card>
   <mat-card-content>
     <mat-toolbar>Matters</mat-toolbar>
@@ -18,11 +19,17 @@
 
         <!-- Actions Column -->
         <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef="">
-            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="accent" aria-label="Add matter" (click)="onAdd()">
               <mat-icon>add</mat-icon>
             </button>
           </mat-header-cell>
+
+          <mat-cell *matCellDef="let matter">
+            <button mat-mini-fab color="warn" aria-label="Delete matter">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -37,3 +44,4 @@
     </ng-template>
   </mat-card-content>
 </mat-card>
+</body>

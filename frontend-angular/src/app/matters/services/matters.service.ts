@@ -17,7 +17,7 @@ export class MattersService {
     return this.httpClient.get<Matter[]>(this.API)
     .pipe(
       first(),
-      delay(5000),
+      delay(2000),
       tap(matters => console.log(matters))
     );
   }
