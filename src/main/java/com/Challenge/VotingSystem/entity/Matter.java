@@ -30,7 +30,6 @@ public class Matter {
     @Column
     private LocalDate date;
 
-
     @NotBlank
     @Column
     private String author;
