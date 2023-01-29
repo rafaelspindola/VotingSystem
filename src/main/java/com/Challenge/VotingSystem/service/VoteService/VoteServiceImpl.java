@@ -23,8 +23,8 @@ public class VoteServiceImpl implements VoteService{
         return voteRepository.save(vote);
     }
 
-    public Vote countVote() {
-
-    }
+//    public Vote countVote() {
+//
+//    }
 
 }

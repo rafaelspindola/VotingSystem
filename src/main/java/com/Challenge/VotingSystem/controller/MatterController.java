@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/matters")
+@RequestMapping("api/v1")
 public class MatterController {
 //        @Autowired
 //    MatterService service;
@@ -20,7 +20,7 @@ public class MatterController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping(value = "matters")
     public ResponseEntity<List<Matter>> getMatters() {
         List<Matter> matters = service.findAll();
         return ResponseEntity.ok().body(matters);

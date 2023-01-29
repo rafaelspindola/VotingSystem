@@ -1,6 +1,7 @@
 package com.Challenge.VotingSystem.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class Matter {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
+    @JsonProperty
     private Long id;
 
     @NotBlank

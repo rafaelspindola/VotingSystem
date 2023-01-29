@@ -8,12 +8,15 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-
 @RestController
 @RequestMapping("api/v1/votes")
 public class VoteController {
 
-    private final VoteService service;
+    private VoteService service;
+
+    public VoteController() {
+
+    }
 
     public VoteController(VoteService service) {
         this.service = service;

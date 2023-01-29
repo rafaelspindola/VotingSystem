@@ -33,6 +33,7 @@ public class Voter {
 
     @Column
     @NotBlank
+    @OneToMany(mappedBy = "voter")
     private List<Vote> votes;
 
 }

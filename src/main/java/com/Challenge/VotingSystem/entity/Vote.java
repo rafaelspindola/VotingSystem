@@ -28,15 +28,15 @@ public class Vote {
 
     private String voteType;
 
-    enum VoteType {
-        YES(1), NO(2);
-
-        private int vote;
-
-        VoteType(int vote) {
-            this.vote = vote;
-        }
-    }
+//    enum VoteType {
+//        YES(1), NO(2);
+//
+//        private int vote;
+//
+//        VoteType(int vote) {
+//            this.vote = vote;
+//        }
+//    }
 }
 
 //        public void getVotes() {
