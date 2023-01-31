@@ -12,11 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/votes")
 public class VoteController {
 
-    private VoteService service;
-
-    public VoteController() {
-
-    }
+    private final VoteService service;
 
     public VoteController(VoteService service) {
         this.service = service;
@@ -28,7 +24,7 @@ public class VoteController {
         return ResponseEntity.ok().body(votes);
     }
 
-    @PostMapping //button to save vote (get CPF)
+    @PostMapping
     public ResponseEntity<Vote> createVote(@RequestBody Vote vote) {
         Vote created = service.save(vote);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()

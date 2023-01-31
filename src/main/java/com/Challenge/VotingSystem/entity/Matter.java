@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -22,8 +24,8 @@ public class Matter {
     @Column
     private String matter;
 
-//    @Column
-//    private Timestamp date;
+    @Column
+    private Timestamp date;
 
     @Column
     private String author;

@@ -18,31 +18,26 @@ public class MatterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Matter>> findAll() {
+    public ResponseEntity<List<Matter>> getMatters() {
         List<Matter> matters = service.findAll();
         return ResponseEntity.ok().body(matters);
     }
 
-//    @GetMapping(value = "matter/{id}")
-//    public ResponseEntity<Matter> findMatterById(@PathVariable("id") Long id) {
-//        Matter matter = service.findById(id);
-//        return ResponseEntity.ok(matter);
-//    }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Matter> getMatterById(@PathVariable("id") Long id) {
+        Matter matter = service.findById(id);
+        return ResponseEntity.ok(matter);
+    }
 
     @PostMapping
-    public ResponseEntity<Matter> save(@RequestBody Matter matter) {
+    public ResponseEntity<Matter> createMatter(@RequestBody Matter matter) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.save(matter));
     }
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Matter> delete(@PathVariable("id") Long id) {
-//        service.deleteById(id);
-//        return ResponseEntity.noContent().build();
-//    }
-
-
-    // create voter, session, matter
-
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Matter> delete(@PathVariable("id") Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

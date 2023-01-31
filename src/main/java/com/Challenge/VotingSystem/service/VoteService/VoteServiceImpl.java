@@ -2,9 +2,10 @@ package com.Challenge.VotingSystem.service.VoteService;
 
 import com.Challenge.VotingSystem.entity.Vote;
 import com.Challenge.VotingSystem.repository.VoteRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class VoteServiceImpl implements VoteService{
 
 

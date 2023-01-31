@@ -28,27 +28,27 @@ public class Vote {
 
     private String voteType;
 
-//    enum VoteType {
-//        YES(1), NO(2);
-//
-//        private int vote;
-//
-//        VoteType(int vote) {
-//            this.vote = vote;
-//        }
-//    }
+    enum VoteType {
+        YES(1), NO(2);
+
+       private int vote;
+
+       VoteType(int vote) {
+           this.vote = vote;
+       }
+
+        public void getVotes() {
+            int yesVotes = 0;
+            int noVotes = 0;
+            if (vote == 1) {
+                yesVotes += 1;
+            } else if (vote == 2) {
+                noVotes += 1;
+            }
+        }
+    }
 }
 
-//        public void getVotes() {
-//            int yesVotes = 0;
-//            int noVotes = 0;
-//            if (vote == 1) {
-//                yesVotes += 1;
-//            } else if (vote == 2) {
-//                noVotes += 1;
-//            }
-//        }
-//
 //        public void getResults() {
 //        }
 //    }

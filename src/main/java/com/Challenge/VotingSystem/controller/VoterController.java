@@ -2,11 +2,10 @@ package com.Challenge.VotingSystem.controller;
 
 import com.Challenge.VotingSystem.entity.Voter;
 import com.Challenge.VotingSystem.service.VoterService.VoterService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -33,12 +32,8 @@ public class VoterController {
 
     @PostMapping
     public ResponseEntity<Voter> createVoter(@RequestBody Voter voter) {
-        Voter created = service.save(voter);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        return ResponseEntity.created(location).body(created);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.save(voter));
     }
 
 }

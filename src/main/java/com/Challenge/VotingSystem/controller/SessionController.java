@@ -2,11 +2,10 @@ package com.Challenge.VotingSystem.controller;
 
 import com.Challenge.VotingSystem.entity.Session;
 import com.Challenge.VotingSystem.service.SessionService.SessionService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -33,12 +32,8 @@ public class SessionController {
 
     @PostMapping // button to create session and count votes, show a dialog with results
     public ResponseEntity<Session> createSession(@RequestBody Session session) {
-        Session created = service.save(session);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().
-                path("{id}").
-                buildAndExpand(created.getId()).
-                toUri();
-        return ResponseEntity.created(location).body(created);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.save(session));
     }
 
     @DeleteMapping

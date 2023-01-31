@@ -15,7 +15,7 @@ import { MattersService } from './../services/matters.service';
 export class MattersComponent {
 
   matters$: Observable<Matter[]>;
-  displayedColumns = ['matter', 'author','actions'];
+matters: any;
 
   constructor(
     public dialog: MatDialog,
