@@ -7,6 +7,8 @@
         <app-matters-list
           *ngIf="matters$ | async as matters; else loading"
           [matters]="matters"
+          (add)="onAdd()"
+          (edit)="onVote($event)"
         ></app-matters-list>
 
         <ng-template #loading>

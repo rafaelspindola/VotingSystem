@@ -22,7 +22,7 @@ export class MattersService {
     );
   }
 
-  createMatter(record: Matter) {
+  createMatter(record: Partial<Matter>) {
     return this.httpClient.post<Matter>(this.API, record).pipe(first());
   }
 }

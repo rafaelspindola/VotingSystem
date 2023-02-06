@@ -7,37 +7,37 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/matters")
 public class MatterController {
-    private final MatterService service;
 
-    public MatterController(MatterService service) {
-        this.service = service;
+    private final MatterService matterService;
+
+    public MatterController(MatterService matterService) {
+        this.matterService = matterService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Matter>> getMatters() {
-        List<Matter> matters = service.findAll();
+    public ResponseEntity<List<Matter>> findAll() {
+        List<Matter> matters = matterService.findAll();
         return ResponseEntity.ok().body(matters);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Matter> getMatterById(@PathVariable("id") Long id) {
-        Matter matter = service.findById(id);
-        return ResponseEntity.ok(matter);
+    @GetMapping("/{id}")
+    public ResponseEntity<Matter> findById(@PathVariable Long id) {
+        return matterService.findById(id).map(recordFound -> ResponseEntity.ok().body(recordFound))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<Matter> createMatter(@RequestBody Matter matter) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.save(matter));
+                .body(matterService.save(matter));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Matter> delete(@PathVariable("id") Long id) {
-        service.deleteById(id);
+        matterService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }

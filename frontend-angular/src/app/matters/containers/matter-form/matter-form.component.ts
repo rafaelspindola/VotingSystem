@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Component } from '@angular/core';
+import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { MattersService } from './../services/matters.service';
+import { MattersService } from '../../services/matters.service';
 
 @Component({
   selector: 'app-matter-form',
@@ -12,18 +12,17 @@ import { MattersService } from './../services/matters.service';
 })
 export class MatterFormComponent {
 
-  form: UntypedFormGroup;
+  form = this.formBuilder.group({
+      matter: [''],
+      author: ['']
+    });
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: NonNullableFormBuilder,
     private service: MattersService,
     private snackBar: MatSnackBar,
     private location: Location
     ) {
-    this.form = this.formBuilder.group({
-      matter: [null],
-      author: [null]
-    });
   }
 
   onSubmit() {
@@ -37,7 +36,7 @@ export class MatterFormComponent {
 
   private onSuccess() {
     this.snackBar.open('Matter created successfully','', {duration: 5000});
-    this.onCancel;
+    this.onCancel();
   }
 
   private onError() {

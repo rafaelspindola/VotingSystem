@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -21,9 +20,9 @@ public class Session {
     @Column
     private Long id;
 
-    @Column
-    @OneToMany(mappedBy = "session")
-    private List<Vote> votes;
+//    @Column
+//    @OneToMany(mappedBy = "session")
+//    private List<Vote> votes;
 
     @Column
     private int sessionDuration;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/voters")
+@RequestMapping
 public class VoterController {
 
     private final VoterService service;
@@ -18,7 +18,7 @@ public class VoterController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping(value = "/api/v1/matters/{id}/voter")
     public ResponseEntity<List<Voter>> getVoters() {
         List<Voter> voters = service.findAll();
         return ResponseEntity.ok().body(voters);
@@ -30,10 +30,17 @@ public class VoterController {
         return ResponseEntity.ok(voter);
     }
 
-    @PostMapping
-    public ResponseEntity<Voter> createVoter(@RequestBody Voter voter) {
+//    @PostMapping("/api/v1/matters/{id}/voters")
+//    public ResponseEntity<Voter> createVoter(@RequestBody Voter voter) {
+//        return ResponseEntity.status(HttpStatus.CREATED)
+//                .body(service.save(voter));
+//    }
+
+    @PutMapping(value = "/api/v1/matters/{id}/voter") //vote
+    public ResponseEntity<Voter> createVoter(@RequestBody Voter voter, @RequestParam Long matterId) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.save(voter));
+                .body(service.save(voter, matterId));
     }
+
 
 }

@@ -13,14 +13,14 @@ import lombok.Setter;
 @Setter
 public class Vote {
 
-    @ManyToOne
-    @JoinColumn(name = "session_id", nullable = false)
-    private Session session;
-
-    @ManyToOne
-    @JoinColumn(name = "voter_id", nullable = false)
-    private Voter voter;
-
+//    @ManyToOne
+//    @JoinColumn(name = "session_id", nullable = false)
+//    private Session session;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "voter_id", nullable = false)
+//    private Voter voter;
+//
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
