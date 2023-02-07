@@ -2,35 +2,36 @@ package com.Challenge.VotingSystem.controller;
 
 import com.Challenge.VotingSystem.entity.Vote;
 import com.Challenge.VotingSystem.service.VoteService.VoteService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 @RestController
-@RequestMapping("api/v1/votes")
+@RequestMapping
 public class VoteController {
 
-    private final VoteService service;
+    private final VoteService voteService;
 
-    public VoteController(VoteService service) {
-        this.service = service;
+    public VoteController(VoteService voteService) {
+        this.voteService = voteService;
     }
 
-    @GetMapping
+    @GetMapping(value = "/api/v1/matters/{id}/vote")
     public ResponseEntity<List<Vote>> getVotes() {
-        List<Vote> votes = service.findAll();
+        List<Vote> votes = voteService.findAll();
         return ResponseEntity.ok().body(votes);
     }
 
-    @PostMapping
-    public ResponseEntity<Vote> createVote(@RequestBody Vote vote) {
-        Vote created = service.save(vote);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
-        return ResponseEntity.created(location).body(created);
+    @GetMapping(value = "/vote/{id}")
+    public ResponseEntity<Vote> getVoterById(@PathVariable("id") Long id) {
+        Vote vote = voteService.findById(id);
+        return ResponseEntity.ok(vote);
+    }
+
+    @PutMapping(value = "/api/v1/matters/vote") //vote
+    public ResponseEntity<Vote> createVoter(@RequestBody Vote vote, @RequestParam Long matterId) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(voteService.save(vote, matterId));
     }
 }

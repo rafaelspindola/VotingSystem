@@ -1,6 +1,5 @@
 package com.Challenge.VotingSystem.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,12 +33,11 @@ public class Matter {
     @Column
     private String author;
 
-    @JsonManagedReference
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
-            name = "matter_voters",
+            name = "matter_votes",
             joinColumns = @JoinColumn(name = "matter_id"),
-            inverseJoinColumns = @JoinColumn(name = "voter_id")
+            inverseJoinColumns = @JoinColumn(name = "vote_id")
     )
-    private List<Voter> voters = new ArrayList<>();
+    private List<Vote> votes = new ArrayList<>();
 }
