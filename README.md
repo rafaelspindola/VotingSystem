@@ -8,6 +8,11 @@ The idea of the project is to develop a system that is able to:
 - Pick a specific matter/subject;
 - Enable associates to vote (yes/no) on a specific matter. 
 
+## Backend functioning AWS deploy
+
+![desafio técnico v1 backend](https://user-images.githubusercontent.com/108681887/218222062-c112ba2b-23f3-4643-8642-3b9ab1c76833.gif)
+
+
 ## Database scheme
 
 ![image](https://user-images.githubusercontent.com/108681887/217982504-93ee7c2e-a55c-4809-b665-23b8b2722377.png)
