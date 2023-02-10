@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -20,9 +19,6 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
-
-    @Column
-    private List<Vote> votes;
 
     @Column
     private int sessionDuration;
