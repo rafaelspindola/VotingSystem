@@ -1,6 +1,6 @@
 # VotingSystem
 
-This is an API for a cooperative voting system. 
+This is an API for a cooperative voting system deployed into AWS Elastic Beanstalk. 
 The idea of the project is to develop a system that is able to:
 - Create a matter/subject;
 - Delete a matter/subject;
@@ -30,26 +30,27 @@ Vote controller: used for voting on a specific matter/subject.
 
 Creating a matter/subject
 
-[image]
+![image](https://user-images.githubusercontent.com/108681887/218221613-4ed5c766-c4fc-4e5b-901a-580810b89c72.png)
 
 Listing all matters
 
-[image]
+![image](https://user-images.githubusercontent.com/108681887/218221773-8f083a4c-752a-4348-ae3f-10e73cac7d08.png)
 
 Voting on a specific matter
 
-[image]
+![image](https://user-images.githubusercontent.com/108681887/218221815-1e3d8260-4976-49b9-8811-0a7b62cfe6db.png)
 
 ## Frontend rendering
 
 This is the initial idea for a frontend using Angular, but it's still in development
 
-[image]
+![desafio técnico v1 frontend](https://user-images.githubusercontent.com/108681887/218221229-12daf12f-034b-4466-8a44-1bdd814efd00.gif)
 
 ## Observations
 There are a lot of development features that I'm planning to include in the next weeks, such as:
 - An algorithm to enable specific voters to vote online once;
-- Creating a session to compute and count votes. It should accept votes only during a specified amount of time and announce the result. 
+- Creating a session to compute and count votes. It should accept votes only during a specified amount of time and announce the result.
+- Document the API using swagger;
 - A fully functioning frontend using Angular;
 - Unit testing (JUnit);
 - RabbitMQ messaging.
