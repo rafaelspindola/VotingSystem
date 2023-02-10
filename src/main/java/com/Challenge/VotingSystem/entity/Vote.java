@@ -18,10 +18,6 @@ import java.util.List;
 @Setter
 public class Vote {
 
-//    @JsonBackReference
-//    @ManyToMany(mappedBy = "votes")
-//    private List<Matter> matters = new ArrayList<>();
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column

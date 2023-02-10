@@ -36,10 +36,4 @@ public class VoteService{
         return voteRepository.save(vote);
     }
 
-//    public Vote save(Vote vote, Long matterId) {
-//        Optional<Matter> selectedMatter = matterService.findById(matterId);
-//        selectedMatter.get().getVoters().add(vote);
-//        return voteRepository.save(vote);
-//    }
-
 }
