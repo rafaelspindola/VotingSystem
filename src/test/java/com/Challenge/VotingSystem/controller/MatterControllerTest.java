@@ -1,9 +1,9 @@
 package com.Challenge.VotingSystem.controller;
 
 import com.Challenge.VotingSystem.entity.Matter;
+import com.Challenge.VotingSystem.repository.MatterRepository;
 import com.Challenge.VotingSystem.service.MatterService.MatterService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.persistence.Id;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,6 +30,7 @@ class MatterControllerTest {
 
 //    private ControllerRequestBuilder requestBuilder;
 
+    private MatterRepository repository;
     @MockBean
     private MatterService service;
 
@@ -65,7 +64,7 @@ class MatterControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(print())
-                .andExpect(jsonPath("$[0].matter", equalTo())
+                .andExpect(jsonPath("$[0].matter").exists())
                 .andExpect(jsonPath("$[1].matter").exists());
     }
 
@@ -100,7 +99,7 @@ class MatterControllerTest {
 
     @Test
     void createMatter() throws Exception {
-        Matter matter = new Matter(null, "10% raise", "13-02-2023", "Rafael", null);
+        Matter matter = new Matter(1L, "10% raise", "13-02-2023", "Rafael", null);
 
         given(service.save(any())).willReturn(matter);
 
@@ -109,18 +108,17 @@ class MatterControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.matter").exists());
+                .andExpect(jsonPath("$._id").value("1"));
     }
-
-
 //
 //    @Test
 //    void delete() {
 //    }
-
     public static String asJsonString(final Object obj) {
         try {
-            return new ObjectMapper().writeValueAsString(obj);
+            final ObjectMapper mapper = new ObjectMapper();
+            final String jsonContent = mapper.writeValueAsString(obj);
+            return jsonContent;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
