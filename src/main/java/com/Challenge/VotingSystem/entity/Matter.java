@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class Matter {
     private String matter;
 
     @Column
-    private LocalDate date;
+    private String date;
 
     @Column
     private String author;
